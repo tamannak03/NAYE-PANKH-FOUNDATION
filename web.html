@@ -1,0 +1,497 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NayePankh Foundation | Empowering Communities</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+:root{
+    --primary:#00b894;
+    --secondary:#0984e3;
+    --dark:#0f172a;
+    --light:#f8fafc;
+    --card:#ffffff;
+    --text:#1f2937;
+}
+
+body.dark{
+    --light:#0f172a;
+    --card:#1e293b;
+    --text:#f1f5f9;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--light);
+    color:var(--text);
+    transition:.4s;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,.15);
+}
+
+.dark nav{
+    background:rgba(0,0,0,.2);
+}
+
+.logo{
+    font-size:1.8rem;
+    font-weight:800;
+    color:var(--primary);
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:var(--text);
+    font-weight:500;
+}
+
+.toggle-btn{
+    background:var(--primary);
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:100px 10%;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:800px;
+    margin:auto;
+    margin-bottom:30px;
+    font-size:1.2rem;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:var(--primary);
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    transition:.3s;
+    font-weight:600;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* SECTIONS */
+section{
+    padding:90px 10%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:2.6rem;
+    color:var(--primary);
+}
+
+.card{
+    background:var(--card);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    transition:.3s;
+}
+
+/* IMPACT */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat{
+    background:var(--card);
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+.stat h2{
+    color:var(--primary);
+    font-size:3rem;
+}
+
+/* CTA */
+.cta{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    text-align:center;
+    border-radius:25px;
+}
+
+/* CONTACT */
+.contact-form{
+    max-width:700px;
+    margin:auto;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    background:var(--card);
+    color:var(--text);
+    box-shadow:0 5px 10px rgba(0,0,0,.05);
+}
+
+.contact-form button{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:var(--primary);
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    background:var(--card);
+}
+
+/* ANIMATION */
+.fade{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.4rem;
+}
+
+.hero p{
+    font-size:1rem;
+}
+
+.nav-links{
+    display:none;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">NayePankh Foundation</div>
+
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#initiatives">Initiatives</a>
+        <a href="#impact">Impact</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleMode()">🌙 Mode</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+<div>
+    <h1>Empowering Communities, Inspiring Change</h1>
+
+    <p>
+        One of India's largest student-led NGOs dedicated to education,
+        hunger relief, women empowerment, child welfare, and social impact.
+    </p>
+
+    <a href="#about" class="btn">Learn More</a>
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade">
+
+<h2 class="section-title">About Us</h2>
+
+<div class="card">
+
+<p>
+NayePankh Foundation is a student-led non-profit organization registered
+under the Government of Uttar Pradesh with 80G and 12A certifications.
+
+We are committed to uplifting underprivileged communities through
+education support, menstrual hygiene awareness, food distribution,
+animal welfare, youth engagement, and volunteer-driven social impact
+initiatives across India.
+
+With a network of thousands of changemakers, we strive to build a
+society where every individual has equal opportunities to grow and thrive.
+</p>
+
+</div>
+
+</section>
+
+<!-- IMPACT -->
+<section id="impact" class="fade">
+
+<h2 class="section-title">Our Impact</h2>
+
+<div class="stats">
+
+<div class="stat">
+<h2>30,000+</h2>
+<p>Interns Trained</p>
+</div>
+
+<div class="stat">
+<h2>1000+</h2>
+<p>Volunteers</p>
+</div>
+
+<div class="stat">
+<h2>500+</h2>
+<p>Social Drives</p>
+</div>
+
+<div class="stat">
+<h2>100+</h2>
+<p>Cities Reached</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- INITIATIVES -->
+<section id="initiatives" class="fade">
+
+<h2 class="section-title">Core Initiatives</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>📚 Education & Child Welfare</h3>
+<p>
+Providing education support, uniforms, stationery,
+and mentorship to roadside and underprivileged children.
+</p>
+</div>
+
+<div class="card">
+<h3>🩸 Menstrual Hygiene Awareness</h3>
+<p>
+Conducting awareness campaigns and distributing sanitary
+napkins to empower women and improve health awareness.
+</p>
+</div>
+
+<div class="card">
+<h3>🍛 Hunger Relief Programs</h3>
+<p>
+Food distribution drives for underprivileged communities
+to combat hunger and malnutrition.
+</p>
+</div>
+
+<div class="card">
+<h3>🐾 Animal Welfare</h3>
+<p>
+Regular feeding drives and care initiatives for
+stray animals in need.
+</p>
+</div>
+
+<div class="card">
+<h3>🎓 Internship Programs</h3>
+<p>
+Providing real-world experience through fundraising,
+social impact, and leadership internships.
+</p>
+</div>
+
+<div class="card">
+<h3>🚀 Youth Empowerment</h3>
+<p>
+Building future leaders through volunteering,
+training, and skill-development opportunities.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="fade">
+
+<h2 class="section-title">Trust & Transparency</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>✅ Government Registered</h3>
+<p>
+Officially registered under the Government of Uttar Pradesh.
+</p>
+</div>
+
+<div class="card">
+<h3>📜 80G Certification</h3>
+<p>
+Eligible donations may qualify for tax benefits.
+</p>
+</div>
+
+<div class="card">
+<h3>📋 12A Certification</h3>
+<p>
+Recognized as a charitable organization supporting social welfare.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+<section class="cta fade">
+
+<h2>Join India's Largest Student-Led NGO Network</h2>
+
+<br>
+
+<p>
+Become a volunteer, intern, fundraiser, or social changemaker.
+Together we can transform lives and create meaningful impact.
+</p>
+
+<br><br>
+
+<a href="#" class="btn">Join Us Today</a>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade">
+
+<h2 class="section-title">Contact Us</h2>
+
+<form class="contact-form">
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<textarea rows="6" placeholder="Your Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</section>
+
+<footer>
+© 2026 NayePankh Foundation | Empowering Communities • Inspiring Change
+</footer>
+
+<script>
+
+function toggleMode(){
+    document.body.classList.toggle("dark");
+}
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".fade").forEach(el=>{
+    observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>
+```
